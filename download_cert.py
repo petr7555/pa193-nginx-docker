@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
-
 import base64
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.certificates import CertificateClient
@@ -8,9 +6,22 @@ from azure.keyvault.secrets import SecretClient
 from cryptography.hazmat.primitives.serialization import pkcs12
 from cryptography.hazmat.primitives import serialization
 
-### TO BE WRITTEN BY YOU ###
+### THIS SECTION TO BE WRITTEN BY YOU ###
 
-### GET SECRET FROM KEYVAULT, PARSE AND STORE TO FILE
+
+
+
+
+
+
+
+
+
+
+
+
+
+### PARSE CERTIFICATE AND STORE TO FILE
 
 cert_bytes = base64.b64decode(certificate_secret.value)
 private_key, public_certificate, additional_certificates = pkcs12.load_key_and_certificates(cert_bytes,None)
