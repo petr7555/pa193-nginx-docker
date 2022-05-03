@@ -5,20 +5,18 @@ from azure.keyvault.certificates import CertificateClient
 from azure.keyvault.secrets import SecretClient
 from cryptography.hazmat.primitives.serialization import pkcs12
 from cryptography.hazmat.primitives import serialization
+import os
 
 ### THIS SECTION TO BE WRITTEN BY YOU ###
 
+credential = DefaultAzureCredential()
 
+vault_url = "https://pa193-keyvault-petrj.vault.azure.net/"
+client = SecretClient(vault_url=vault_url, credential=credential)
 
-
-
-
-
-
-
-
-
-
+secret_name = os.getenv("client_secret")
+print(secret_name)
+certificate_secret = client.get_secret(secret_name)
 
 
 ### PARSE CERTIFICATE AND STORE TO FILE
@@ -42,4 +40,3 @@ with open ("/data/pa193-cert.cert", "wb") as pub_file:
     )
 
     pub_file.write( pem )
-
